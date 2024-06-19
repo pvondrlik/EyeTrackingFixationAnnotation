@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import cv2 as cv2
 
+# file such that it does not require the librarys
 
 def show_video(video_path, start_frame = 0, end_frame = 1000, show_gaze = False, show_label= False, merged_gaze_df = None,  merged_label_df = None):
     """
@@ -170,7 +171,6 @@ def get_fix(fix_path, world_path):
     return merged_df[['frame_nr','timestamp [ns]','fixation id', 'blink id', 'timestamp [ns] gaze', 'timestamp [ns] world', 'gaze x [px]', 'gaze y [px]']]
 
 
-
 def main():
     
     # example usage
@@ -183,7 +183,7 @@ def main():
     # get one gaze per frame -> simpler to show
     merged_gaze_df = get_gaze_per_frame(gaze_path, world_path)
     # get all frames per gaze -> more information
-    #merged_gaze_df  =get_frame_per_gaze(gaze_path, world_path)
+    # merged_gaze_df  = get_frame_per_gaze(gaze_path, world_path)
 
     # show fixation
     #merged_fix_df = get_fix(fix_path, world_path)
